@@ -9,7 +9,7 @@ Live companion: <https://av10v.github.io/CTF-BiotechCorp/#prompt>
 | Prompt | Use it for | Size |
 |---|---|---|
 | [`prompts/01-autonomous-ad-ctf-agent.md`](prompts/01-autonomous-ad-ctf-agent.md) | Any AD / CTF lab. Lab-agnostic template: placeholders, 10 operating rules, 8 adaptive phases, decision loop, state files, time budgets, pitfalls, report format. | ~730 lines |
-| [`prompts/02-biotechcorp-from-zero.md`](prompts/02-biotechcorp-from-zero.md) | A worked example filled in for one 3-host lab — from a single handed-over credential to Domain Admin, with no solution leakage. | ~180 lines |
+| [`prompts/02-biotechcorp-from-zero.md`](prompts/02-biotechcorp-from-zero.md) | A worked example for a 3-host AD lab — `IP1`/`IP2`/`IP3` are variables you fill in per run; from a single handed-over credential to Domain Admin, no solution leakage. | ~180 lines |
 
 ## What makes these different from "you are a pentester, go hack"
 
@@ -32,6 +32,6 @@ Adapt per lab. The rules and the reporting contract transfer; the phase content 
 
 ## Notes
 
-- Prompt 02 references one specific, by-then-retired training range. Credentials in it are dead; the methodology is the point.
+- Prompt 02 is written for one specific (by-then-retired) training range, with `IP1`–`IP3` left as variables to fill per run and dead credentials; the methodology is the point.
 - Both prompts assume the agent has a shell and can run the tools itself. If it only has a browser or a chat window, keep the structure but expect the agent to hand you commands to run.
 - Nothing here authorises testing anything. Scope is what you fill into the placeholders.
