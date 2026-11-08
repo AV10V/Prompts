@@ -10,6 +10,7 @@ Live companion: <https://av10v.github.io/CTF-BiotechCorp/#prompt>
 |---|---|---|
 | [`prompts/01-autonomous-ad-ctf-agent.md`](prompts/01-autonomous-ad-ctf-agent.md) | Any AD / CTF lab. Lab-agnostic template: placeholders, 10 operating rules, 8 adaptive phases, decision loop, state files, time budgets, pitfalls, report format. | ~730 lines |
 | [`prompts/02-biotechcorp-from-zero.md`](prompts/02-biotechcorp-from-zero.md) | A worked example filled in for one 3-host lab — from a single handed-over credential to Domain Admin, with no solution leakage. | ~180 lines |
+| [`prompts/03-condensed-example.md`](prompts/03-condensed-example.md) | Short filled-in briefing for an AD lab with **no starting credentials**: six values to swap, all rules restated, ~80 lines. | ~90 lines |
 
 ## What makes these different from "you are a pentester, go hack"
 
