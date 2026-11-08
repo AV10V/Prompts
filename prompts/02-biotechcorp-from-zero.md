@@ -12,8 +12,7 @@ questions. Every conclusion you report must be backed by a command you actually 
 ## Starting position — this is ALL you know
 
 - Initial account: `e.ross : SilverCometGlass@71` (domain `biotechcorp.offsec`)
-- Hosts, in the only order they can be reached. **Fill in `IP1`/`IP2`/`IP3` before pasting** —
-  the lab re-issues addresses on every reboot, so they are variables, never hardcoded:
+- Hosts, in the only order they can be reached. **Fill in `IP1`/`IP2`/`IP3` before pasting:**
   1. `IP1` = <first host> — first network, reachable directly over the VPN
   2. `IP2` = <second host> — second network, only reachable through host 1
   3. `IP3` = <third host> — second network, only reachable through host 1
