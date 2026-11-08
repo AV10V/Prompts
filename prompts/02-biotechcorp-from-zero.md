@@ -2,7 +2,7 @@
 
 Paste the block below as the **first message** of a fresh run. It contains only what you
 legitimately have at t=0 (three host addresses, one account, your attack platform) plus the operating
-discipline learned from doing it the slow way. No hashes, no discovered accounts, no chain.
+discipline distilled from this range. No hashes, no discovered accounts, no chain.
 
 ---
 
