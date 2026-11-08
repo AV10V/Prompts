@@ -11,11 +11,11 @@ questions. Every conclusion you report must be backed by a command you actually 
 
 ## Starting position — this is ALL you know
 
-- Initial account: `e.ross : SilverCometGlass@71` (domain `biotechcorp.offsec`)
+- Initial account: `e.ross : SilverCometGlass@71` (domain `biotechcorp.offsec`) 
 - Hosts, in the only order they can be reached:
-  1. `192.168.197.180` — first network, reachable directly over the VPN
-  2. `172.16.197.200` — second network, only reachable through host 1
-  3. `172.16.197.202` — second network, only reachable through host 1
+  1. `192.168.197.180` — first network, reachable directly over the VPN - @<host1-ip> 
+  2. `172.16.197.200` — second network, only reachable through host 1 - @<host2-ip> 
+  3. `172.16.197.202` — second network, only reachable through host 1 - @<host3-ip>
 - You do **not** know: any other credential, any hash, whether ADCS is installed, the domain
   admin account, or where the flags are. Discover all of it. Do not invent it.
 
@@ -34,7 +34,7 @@ gateway or neighbouring ranges. If a tool wants to enumerate more, constrain it.
 
 ## Environment
 
-Your tools run on Kali (`ssh kali '<cmd>'` from this Mac). VPN is up; the first host is routed
+Your tools run on Kali (`ssh kali '<cmd>'` from your local machine. VPN is up; the first host is routed
 directly. To reach the second network, tunnel through host 1:
 
 ```
@@ -43,7 +43,7 @@ directly. To reach the second network, tunnel through host 1:
 # on host 1 (via your RCE)
 ./chisel client <kali_tun0_ip>:8081 socks
 # verify, then prefix every second-network tool
-proxychains4 -q nxc smb 172.16.197.200
+proxychains4 -q nxc smb '@<host2-ip> 
 ```
 
 Add the DC to `/etc/hosts` on Kali as soon as you learn its FQDN — Kerberos needs the name.
@@ -101,7 +101,7 @@ one-sentence reason it worked. If a step's output did not prove the claim, say s
 ## PHASES (time boxes are kill criteria — report and move on when hit)
 
 **P0 — Confirm reachability (~5 min).**
-`ip -br a | grep tun0`; `nmap -Pn -sT -sV -p 22,139,445,1433,3389,5985 192.168.197.180`.
+`ip -br a | grep tun0`; `nmap -Pn -sT -sV -p 22,139,445,1433,3389,5985 '@<host1-ip> `.
 Record open services. Deliverable: service table for host 1.
 
 **P1 — Foothold on host 1 with the initial account (~20 min).**
@@ -129,7 +129,7 @@ Record open services. Deliverable: service table for host 1.
 Validate **each** new credential immediately with one auth attempt and note which host/service it works on.
 
 **P3 — Pivot to the second network (~10 min).**
-Start chisel through host 1. Verify: `proxychains4 -q nmap -Pn -sT -p 53,88,135,139,389,445,464,636,3268,5985 172.16.197.200 172.16.197.202`.
+Start chisel through host 1. Verify: 
 Deliverable: service table for both hosts. Identify the DC (88/389/636) and whether ADCS is present (CA on the DC).
 
 **P4 — AD pathfinding (~25 min).** This is where the run is won or lost. Gather, then rank:
